@@ -1,9 +1,8 @@
 
 
 # dowloading the file
-
-echo "Downlaoding Data"
-wget "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/ETL%20using%20shell%20scripting/web-server-access-log.txt.gz"
+echo "downloading"
+curl "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/ETL%20using%20shell%20scripting/web-server-access-log.txt.gz" --output web-server-access-log.txt.gz
 
 
 # unzipping the file
@@ -21,4 +20,4 @@ tr "#" "," < extracted-data.txt > transformed-data.csv
 # Loading Phase
 echo "Loading Data"
 
-echo "\c ___; \COPY access_log FROM 'transformed-data.csv' DELIMITER ',' CSV HEADER;" | psql --username=___ --host=___
+echo "\c test_db; \COPY access_log FROM 'transformed-data.csv' DELIMITER ',' CSV HEADER;" | psql --username=____ --password=___
